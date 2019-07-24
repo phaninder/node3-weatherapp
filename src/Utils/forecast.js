@@ -9,10 +9,10 @@ const forecast = (data,callback)=>{
         }else if(response.body.error){
             callback('Please enter valid location details',undefined)
         }else{
-            const {summary,temperature,precipProbability,temp=5} = response.body.currently
+            const {summary,temperature,precipProbability,windSpeed} = response.body.currently
             
-            //console.log(data.location +', Lat:'+data.lat+', Long:'+data.long)
-            callback(undefined,summary+". It's currently "+temperature +" degrees out. There is "+precipProbability+"% of rain.")
+           // console.log(response.body)
+            callback(undefined,summary+". It's currently "+temperature +" degrees out. There is "+precipProbability+"% of rain. WindSpeed is :"+windSpeed)
         }
     })
 }
